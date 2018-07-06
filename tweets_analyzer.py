@@ -182,7 +182,7 @@ def process_tweet(tweet):
     if tweet.entities['urls']:
         for url in tweet.entities['urls']:
             domain = urlparse(url['expanded_url']).netloc
-            if domain != "twitter.com":  # removing twitter.com from domains (not very relevant)
+            if domain != "twitter.com" or != "mobile.twitter.com":  # removing twitter.com from domains (not very relevant)
                 detected_domains[domain] += 1
 
     # Updating mentioned users list
